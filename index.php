@@ -8,12 +8,12 @@ if (isset($_SESSION['username'])) {
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-  <html lang="en">
+  <html lang="id">
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Starter</title>
+    <title>Sistem Informasi Sekolah</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -34,10 +34,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="index.php" class="nav-link">Home</a>
           </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
+            <a href="#" class="nav-link">Kontak</a>
           </li>
         </ul>
 
@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="navbar-search-block">
               <form class="form-inline">
                 <div class="input-group input-group-sm">
-                  <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                  <input class="form-control form-control-navbar" type="search" placeholder="Cari..." aria-label="Search">
                   <div class="input-group-append">
                     <button class="btn btn-navbar" type="submit">
                       <i class="fas fa-search"></i>
@@ -64,8 +64,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </form>
             </div>
           </li>
-
-
         </ul>
       </nav>
       <!-- /.navbar -->
@@ -73,27 +71,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-          <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-          <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <a href="index.php" class="brand-link">
+          <img src="dist/img/AdminLTELogo.png" alt="Logo Sistem" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <span class="brand-text font-weight-light">Sistem Sekolah</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
-          <!-- Sidebar user panel (optional) -->
+          <!-- Sidebar user panel -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-              <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+              <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="Foto Pengguna">
             </div>
             <div class="info">
-              <a href="#" class="d-block">Alexander Pierce</a>
+              <a href="#" class="d-block"><?= $_SESSION['nama_lengkap'] ?? 'Pengguna' ?></a>
             </div>
           </div>
 
           <!-- SidebarSearch Form -->
           <div class="form-inline">
             <div class="input-group" data-widget="sidebar-search">
-              <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+              <input class="form-control form-control-sidebar" type="search" placeholder="Cari Menu..." aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-sidebar">
                   <i class="fas fa-search fa-fw"></i>
@@ -105,59 +103,65 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-              <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
+              
               <?php if ($_SESSION['role'] == 'admin') { ?>
+                <!-- Menu Admin -->
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-database"></i>
                     <p>
-                      MASTER
+                      MASTER DATA
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="#" class="nav-link active">
+                      <a href="index.php?page=guru" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-
-
                         <p>Guru</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="index.php?page=siswa" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Siswa</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="index.php?page=kelas" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Kelas</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="index.php?page=ekstrakurikuler" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Mapel</p>
+                        <p>Ekstrakurikuler</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="index.php?page=mapel" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Mata Pelajaran</p>
                       </a>
                     </li>
                   </ul>
                 </li>
+
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-calendar-alt"></i>
                     <p>
                       TRANSAKSI
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
                   <ul class="nav nav-treeview">
+                    <!-- ✅ Menu Jadwal yang sudah ditambahkan -->
                     <li class="nav-item">
-                      <a href="#" class="nav-link active">
+                      <a href="index.php?page=jadwal" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Jadwal</p>
+                        <p>Jadwal Pelajaran</p>
                       </a>
                     </li>
                   </ul>
@@ -165,62 +169,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <?php } ?>
 
               <?php if ($_SESSION['role'] == 'guru') { ?>
+                <!-- Menu Guru -->
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      Profil
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      Kelas
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      Jadwal
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                <?php } ?>
-
-                <?php if ($_SESSION['role'] == 'siswa') { ?>
-                <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      Profil
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link active">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                      jadwal
-                      <i class="right fas fa-angle-left"></i>
-                    </p>
-                  </a>
-                <?php } ?>
-
-                <li class="nav-item">
-                  <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
-                    <p>
-                      Log Out
-                    </p>
+                  <a href="index.php?page=profil" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>Profil</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="index.php?page=kelas" class="nav-link">
+                    <i class="nav-icon fas fa-chalkboard"></i>
+                    <p>Kelas</p>
+                  </a>
+                </li>
+                <!-- ✅ Menu Jadwal untuk Guru -->
+                <li class="nav-item">
+                  <a href="index.php?page=jadwal" class="nav-link">
+                    <i class="nav-icon fas fa-calendar-check"></i>
+                    <p>Jadwal Mengajar</p>
+                  </a>
+                </li>
+              <?php } ?>
+
+              <?php if ($_SESSION['role'] == 'siswa') { ?>
+                <!-- Menu Siswa -->
+                <li class="nav-item">
+                  <a href="index.php?page=profil" class="nav-link">
+                    <i class="nav-icon fas fa-user"></i>
+                    <p>Profil</p>
+                  </a>
+                </li>
+                <!-- ✅ Menu Jadwal untuk Siswa -->
+                <li class="nav-item">
+                  <a href="index.php?page=jadwal" class="nav-link">
+                    <i class="nav-icon fas fa-calendar"></i>
+                    <p>Jadwal Pelajaran</p>
+                  </a>
+                </li>
+              <?php } ?>
+
+              <!-- Menu Logout -->
+              <li class="nav-item">
+                <a href="logout.php" class="nav-link text-danger">
+                  <i class="nav-icon fas fa-sign-out-alt"></i>
+                  <p>Keluar</p>
+                </a>
+              </li>
+
             </ul>
           </nav>
           <!-- /.sidebar-menu -->
@@ -228,23 +223,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- /.sidebar -->
       </aside>
 
-      <!-- Content Wrapper. Contains page content -->
+      <!-- Content Wrapper -->
       <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
+        <!-- Content Header -->
         <div class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Starter Page</h1>
-              </div><!-- /.col -->
+                <h1 class="m-0">Beranda</h1>
+              </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item active">Starter Page</li>
+                  <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                  <li class="breadcrumb-item active">
+                    <?php 
+                      if(isset($_GET['page'])){
+                        echo ucwords(str_replace('_', ' ', $_GET['page']));
+                      } else {
+                        echo 'Dashboard';
+                      }
+                    ?>
+                  </li>
                 </ol>
-              </div><!-- /.col -->
-            </div><!-- /.row -->
-          </div><!-- /.container-fluid -->
+              </div>
+            </div>
+          </div>
         </div>
         <!-- /.content-header -->
 
@@ -252,66 +255,63 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                    <h5 class="card-title">Dashboard</h5>
+                    <?php
+                    if (isset($_GET['page'])) {
+                      $page = $_GET['page'];
+                    } else {
+                      $page = "dashboard";
+                    }
 
-                    <p class="card-text">
-                      SELAMAT DATANG DI WEBSITE XYZ
-                    </p>
-
-
+                    // Cek keberadaan file
+                    if (!file_exists("page/$page.php")) {
+                      echo "<div class='alert alert-danger'>
+                              <h5><i class='icon fas fa-exclamation-triangle'></i> Halaman tidak ditemukan!</h5>
+                              File <b>page/$page.php</b> tidak tersedia.
+                            </div>";
+                    } else {
+                      include "page/$page.php";
+                    }
+                    ?>
                   </div>
                 </div>
-
-
               </div>
             </div>
-            <!-- /.col-md-6 -->
           </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
       </div>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+      <!-- /.content-wrapper -->
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-      <div class="p-3">
-        <h5>Title</h5>
-        <p>Sidebar content</p>
-      </div>
-    </aside>
-    <!-- /.control-sidebar -->
+      <!-- Control Sidebar -->
+      <aside class="control-sidebar control-sidebar-dark">
+        <div class="p-3">
+          <h5>Informasi</h5>
+          <p>Pengaturan tambahan</p>
+        </div>
+      </aside>
+      <!-- /.control-sidebar -->
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="float-right d-none d-sm-inline">
-        Anything you want
-      </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-inline">
+          Versi 1.0
+        </div>
+        <strong>Copyright &copy; 2026 <a href="#">Sistem Informasi Sekolah</a>.</strong> All rights reserved.
+      </footer>
     </div>
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
-
-    <!-- jQuery -->
     <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
     <script src="dist/js/adminlte.min.js"></script>
   </body>
-
   </html>
 <?php
 } else {
-  echo "<meta http-equiv='refresh'content='0 url =login.php'>";
+  echo "<meta http-equiv='refresh' content='0; url=login.php'>";
 }
 ?>

@@ -81,7 +81,7 @@ if (isset($_POST['login'])) {
   if (empty($username) || empty($password)) {
     echo "Data Tidak Boleh Kosong";
   } else {
-    $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password' ");
+    $query = mysqli_query($koneksi, "SELECT * FROM users WHERE username='$username' AND password='$password' ");
     $data = mysqli_fetch_array($query);
 
     if ($data) {
